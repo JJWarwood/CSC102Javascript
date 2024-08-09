@@ -30,7 +30,6 @@
         result = "Computer Wins, You Lose!";
     } else if ((playerschoice ==3) && (computerschoice ==2)) {
         result = "Player Wins!";
-        
     } 
     var computerschoicename = "Rock";
     if (computerschoice == 1) {
