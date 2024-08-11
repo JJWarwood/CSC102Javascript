@@ -27,7 +27,7 @@
      .start-button {
         background-color: blue;
         color: white;
-        border solid: 2px;
+        border: solid 2px;
         padding: 5px;
 
 
@@ -37,11 +37,16 @@
 </head>
 
 <body>
-    <center>
+    
+        <!--header or title of the website-->
     <h1>Palindrome Checker</h1>
     <br>
+    <!--button that calls palindrome checker function when clicked-->
+    <!--start button class defines which style sheet to use-->
     <button class="start-button" onclick="startPalindromeChecker()">Press Here to Start</button>
     <br><br><hr><br>
+    <!--first, last, zip input-->
+    <!--labels tell user what field it is-->
     <label for="fname">First Name</label>&nbsp;
     <input type="text" id="fname" placeholder="Enter first name here" /><br/><br/>
     <label for="lname">Last Name</label>&nbsp;
@@ -50,76 +55,108 @@
     <input type="number" id="zipcode" placeholder="Enter zip" /><br/><br/>
 
     <p id="Message"></p><br/><br/>
+    <!--button that will display the name that was entered if valid-->
     <button id="returnName" onclick="ReturnUserInfo()">Click here to return your name</button>
 
-    
+    <!--super secret message that user receives when all info input is valid-->
     <p id="SecretMessage"></p><br/><br/>
    
-</center>
+
 
 <script>
+    //this is where the JavaScript starts
+    //function that determines if input is a palindrome
+    //string is input
+    //return is true if it's a palindrome, and false if it isn't
 function isPalindrome(input){
+    //converts all characters to lower case
     const lowerCaseStr = input.toLowerCase();
+    //gets rid of all spaces and characters
     const cleanedStr = lowerCaseStr.replace(/[^a-z0-9]/g, '');
+    // reverses string that was entered
     const reversedStr = cleanedStr.split('').reverse().join('');
+    //checks to see if the reverse string is equal to the original string
     return cleanedStr === reversedStr;
 }
+
+//this function is called when the palindrome checker button is clicked
 function startPalindromeChecker(){
     let continueChecking = true;
     while (continueChecking) {
+        //displays a box to enter a word or phrase
         const userInput = prompt("Enter a word or phrase to check if it's a palindrome (orclick Cancel to stop):");
+        //if user clicks cancel to exit the loop
         if (userInput === null) {
             continueChecking = false;
+            //tells user that the function is done/canceled
             alert("Palindrome checking stopped.");
             break;
         }
+        //cheking user input to see if string is a palindrome
         if (isPalindrome(userInput)){
+            //if input is a palindrome, alert confirms that it's a palindrome
             alert(`:${userInput}" is a palindrome!`);
+            //otherwise
         } else {
+            //input is not a palindrome
             alert(`"${userInput}" is not a palindrome.`);
         }
+        //a box pops up to ask if you want to keep playing this fun game, and 
+        //gives user the option of entering more words
         continueChecking = confirm("Do you want to check another word?");
     }
 }
+
+//create a function that is called by a button on the website, which checks the names and zip code
+//each is validated, and will indicate if invalid or incorrect
+//if correct, it will display super secret code word
 function ReturnUserInfo(){
-    
+    // fetch the first, and then last name from the HTML document
     var firstname = document.getElementById ("fname").value;
     var lastname = document.getElementById ("lname").value;
+    // append the first and last name together, separated by a space, indicated by " ""
     var fullname = (firstname + " " + lastname);
-
+    // checks to make sure names are less than 20 characters
     var lengthofname = fullname.length;
     if (lengthofname > 20){
+        //Tells you if name is more than 20 characters
         document.getElementById ("Message").innerHTML = "Name must be less than 20 characters!";
+        //if more than 20 characters, the return will end the function
         return;
-    }
+    }//fetching the zip code from the HTML document
     var zipcode = document.getElementById ("zipcode").value;
+    //validates zip code, and will display if invalid
     if (!isValidZip(zipcode)) {
         alert("invalid zip");
+        //if invalid, the return will end the function
         return;
     }
-    // var zipcodepattern = /^[0-9]{5}(?:-[0-9]{4})?$/;
-    // var zipcode = document.getElementById ("zipcode").value;
-    // if (zipCodePattern.test(zipCode)){
-    //     document.getElementById ("Message").innerHTML = "Invalid Zip Code!";
-    //     alert("asdfasdf");
-    //     return;
-    // }
-
+   
+//displays the name typed into the first and last name input boxes
+//if names and zip code are both valid, the super secret club message is displayed
     document.getElementById ("Message").innerHTML = "Full Name: " + fullname;
     document.getElementById ("SecretMessage").innerHTML = "Welcome to the super secret club!";
-    //alert (firstname + " " + lastname);
+   
 }
+
+//2 parameters; input zip code as a string
+//returns true if the zip code is valid
+//if not, then false
+//return ends the function
+
 function isValidZip(zip) {
     if (zip.length != 5) { return false; }
     for (var i = 0; i < 5; i++) {
-         //if (!isDigit(zip[i])) {  return false; 
+        
          if (!(zip[i] >= '0' && zip[i] <=9)) { return false; }
     }
     return true;
 }
+//this indicates the end of the JavaScript section
 </script>
 
 
-    
+  <!--this is the end of the HTML document-->  
 </body>
+
 </html>
