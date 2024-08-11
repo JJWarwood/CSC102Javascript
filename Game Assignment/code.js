@@ -15,9 +15,15 @@
 
     var computerschoice = Math.floor(Math.random() * 3) + 1;
 
+    playGame(playerschoice, computerschoice);
+
+ }
+
+ function playGame(playerschoice, computerschoice)
+ {
     var result = "";
     if (playerschoice == computerschoice) {
-        result = "tie"
+        result = "Tie"
     } else if ((playerschoice ==1) && (computerschoice == 2)) {
         result = "Computer Wins, You Lose!";
     } else if ((playerschoice ==1) && (computerschoice ==3)) {
@@ -30,14 +36,15 @@
         result = "Computer Wins, You Lose!";
     } else if ((playerschoice ==3) && (computerschoice ==2)) {
         result = "Player Wins!";
+        
     } 
     var computerschoicename = "Rock";
     if (computerschoice == 1) {
-        computerschoicename = "Rock";
+        computerschoicename = "Rock.";
     } else if (computerschoice == 2){
-       computerschoicename = "Paper";
+       computerschoicename = "Paper.";
     } else if (computerschoice == 3){
-        computerschoicename = "scissors";
+        computerschoicename = "Scissors.";
     } 
     document.getElementById("message").innerHTML = "The Computer Chose " + computerschoicename + "\n" + result;
 

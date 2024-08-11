@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Time</title>
 
+    <link rel="stylesheet" href="game.css">
+
     <script type = "text/javascript" src="code.js"></script>
 
 </head>
 <!--Add a button and have all the output go to the code.js page through the use of #.innerhtml in the javascript-->
 <body>
+    <h1> ROCK PAPER SCISSORS</h1>
+    <h2>Random vs. Random!</h2>
+    <h2>Man vs. Machine!</h2>
+    <h3>To play, click on your choice of rock, paper, or scissors, then click Game Time </h3>
     
-    <button onclick="startgame()">Press Here for Game Time</button>
     <br>
-    <br>
-
+<p>
     <input type="radio" name="choice" id="rock" value="1">
     <label for="rock">rock</label>
 
@@ -23,8 +27,11 @@
 
     <input type="radio" name="choice" id="scissors" value="3">
     <label for="scissors">scissors</label>
-
+    <br><br>
+    <button onclick="startgame()">Press Here for Game Time</button>
     <p id="message"></p>
+<br>
 
+</p>
 </body>
 </html>

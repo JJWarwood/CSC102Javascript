@@ -1,0 +1,15 @@
+/*
+declaration block:
+
+selector{
+property: value;
+property2: value;
+}
+*/
+
+body{
+    background-color: rgb(156, 156, 215);
+    color: rgb(13, 12, 12);
+    text-align: center;
+    border: double;
+}
