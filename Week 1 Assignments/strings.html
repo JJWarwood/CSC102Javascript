@@ -53,7 +53,7 @@
     <button id="returnName" onclick="ReturnUserInfo()">Click here to return your name</button>
 
     
-
+    <p id="SecretMessage"></p><br/><br/>
    
 </center>
 
@@ -105,8 +105,9 @@ function ReturnUserInfo(){
     //     return;
     // }
 
-    document.getElementById ("Message").innerHTML = fullname;
-    alert (firstname + " " + lastname);
+    document.getElementById ("Message").innerHTML = "Full Name: " + fullname;
+    document.getElementById ("SecretMessage").innerHTML = "Welcome to the super secret club!";
+    //alert (firstname + " " + lastname);
 }
 function isValidZip(zip) {
     if (zip.length != 5) { return false; }
