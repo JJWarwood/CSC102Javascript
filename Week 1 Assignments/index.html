@@ -1,5 +1,8 @@
-<!--Jeremy Warwood-->
+
+
+
 <!DOCTYPE html>
+<!--Jeremy Warwood-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,14 +10,70 @@
     <title>Assignment1</title>
     <!--add link to our css file-->
     <link rel="stylesheet" href="main.css">
+
+    <style> 
+    /*set position of the image*/
+        #meme {
+            position: relative;
+            top: 100px;
+            left: 0px;
+            width: 200px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 
     <h1>First Website</h1>
 
-    <p>Paragraph 1 text here</p>
-    
-    <img src="programmermeme.png">
+    <p>Paragraph 1 text here</p><br>
+  
+    <!--creates start button-->
+<input type = "button" value = "start" onclick = "onStart()" id = "start"/> 
+<!--creates stop button-->
+<input type = "button" value = "stop" onclick = "onStop()" id = "stop" disabled/>
+<!--this is the image source-->
+    <img src="programmermeme.png" id = "meme">
 
 </body>
 </html>
+
+<script language = "javaScript" type = "text/javaScript">
+    //global vairable that stores the movement interval throughout//
+    let moveInterval;
+//function is called when start button is clicked
+    function onStart(){
+       document.getElementById("start").disabled = true; //start button enabled
+       document.getElementById("stop").disabled = false; //stop button disabled
+        
+            //sets the frequency that the image moves, here is 500 miliseconds
+            moveInterval = setInterval(moveImage, 500);
+
+        //moveImage(meme);
+    
+    }//function gets called when the stop button is clicked
+    function onStop(){
+        //stops movement
+        clearInterval(moveInterval);
+        //enables start button
+        document.getElementById("start").disabled = false; 
+        //stop button disabled
+       document.getElementById("stop").disabled = true; 
+    }
+    //moves image to a random position
+    function moveImage(){
+        //fetch image 
+        var img = document.getElementById("meme");
+        //fetch boundaries left/right
+        const maxX = window.innerWidth - img.width;
+        //fetch boundaries top/bottom
+        const maxY = window.innerHeight - img.height;
+
+        // generate random position
+        const newX = Math.floor(Math.random() * maxX);
+        const newY = Math.floor(Math.random() * maxY);
+        //moves image to the random x and y positions
+        img.style.left = newX + "px";
+        img.style.top = newY + "px";
+    }
+</script>

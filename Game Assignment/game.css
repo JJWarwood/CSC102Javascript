@@ -1,3 +1,4 @@
+/*Jeremy Warwood*/
 /*
 declaration block:
 
@@ -6,7 +7,9 @@ property: value;
 property2: value;
 }
 */
-
+/*this document will be fetched in the head of the HTML document where the game code is written*/
+/*these are the css commands that change the bachground color, and */
+/*change the aignment of the game instructions to center*/
 body{
     background-color: rgb(156, 156, 215);
     color: rgb(13, 12, 12);
