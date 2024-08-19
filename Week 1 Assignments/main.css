@@ -7,23 +7,35 @@ property: value;
 property2: value;
 }
 */
-
+/*sets margins, color of page*/
 body{
+    
     background-color: rgb(52, 121, 249);
     color: rgb(2, 42, 130);
-}
+    margin: 0;
+    padding: 0;
 
+}
+/*size and location of the image*/
 nav{
-    height: 600px;
+    height: 150px;
     width: 200px;
     float: left;
     padding: 5px;
     line-height: 30px;
 }
-
+/*setting the position, alighment, color, border thickness and text color of the footer*/
 footer{
     text-align: center;
-    margin-right: 200px;
+    margin-right: 1px;
+    border-style: solid;
+    background-color: blue;
+    color:aliceblue;
+    margin-bottom: 1px;
+    margin-top: 250px;
+    padding: 2px;
+
+    
 }
 /*
 #meme{
@@ -34,6 +46,22 @@ footer{
     height: auto;
 }
 */
+/*sets the text alignment, coloc, border, position, margin of header*/
 h1{
     text-align: center;
+    border-style: solid;
+    background-color: blue;
+    color: rgb(174, 210, 222);
+    margin-right: 1px;
+    margin-bottom: 175px;
+
+}
+/*setting the overall size, margin, and border of the page*/
+.page-wrapper {
+    max-width: 1000px;
+    margin: 5px;
+    border: 2px solid;
+
+
+
 }
